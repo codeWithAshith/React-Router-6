@@ -1,7 +1,17 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 const SingleProduct = () => {
-  return <div>SingleProduct</div>;
+  const { productId } = useParams();
+  
+  return (
+    <section className="section product">
+      <h2>{productId}</h2>
+      <Link to="/" className="btn">
+        Home
+      </Link>
+    </section>
+  );
 };
 
 export default SingleProduct;
