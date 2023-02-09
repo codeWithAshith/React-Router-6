@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 import SharedLayout from "./components/SharedLayout";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
@@ -22,8 +23,15 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="products" element={<Products />} />
           <Route path="products/:productId" element={<SingleProduct />} />
-          <Route path="dashboard" element={<Dashboard user={user} />} />
           <Route path="login" element={<Login setUser={setUser} />} />
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute user={user} >
+                <Dashboard user={user} />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
