@@ -1,20 +1,17 @@
 // npm install react-router-dom
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>Homepage</div>} />
-        <Route
-          path="/testing"
-          element={
-            <div>
-              <h2>Testing</h2>
-            </div>
-          }
-        />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </BrowserRouter>
   );
